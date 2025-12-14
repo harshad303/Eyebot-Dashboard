@@ -16,7 +16,7 @@ const Header = ({ location }: HeaderProps) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50 h-12">
+    <header className="fixed top-0 left-0 right-0 backdrop-blur-sm bg-white/95 border-b border-gray-200 z-50 h-12 shadow-sm">
       <div className="max-w-[1400px] mx-auto px-6 h-full flex items-center justify-between">
         <div className="flex items-center gap-3">
           <h1 className="text-lg font-bold text-gray-900">Revenue Waterfall</h1>
@@ -29,7 +29,7 @@ const Header = ({ location }: HeaderProps) => {
           <span className="text-2xl font-bold text-gray-900">
             {formatCurrency(location.totalRevenue)}
           </span>
-          <span className="bg-green-50 text-green-700 text-sm px-2 py-1 rounded-full font-semibold flex items-center gap-1">
+          <span className="bg-green-50 text-green-700 text-sm px-2 py-1 rounded-full font-semibold flex items-center gap-1 transition-all duration-200 hover:scale-105">
             <TrendingUp className="w-3 h-3" />
             ↑ {location.revenueChange}%
           </span>

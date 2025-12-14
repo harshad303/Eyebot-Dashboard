@@ -16,6 +16,17 @@ export interface Stage {
 export interface Connection {
   dropoffPercent: number;
   isPositive?: boolean;
+  dropoffCount?: number;
+  reasons?: Array<{
+    reason: string;
+    count: number;
+    percent: number;
+  }>;
+  fix?: {
+    title: string;
+    impact: string;
+    revenue: number;
+  };
 }
 
 export interface Opportunity {
@@ -31,5 +42,21 @@ export interface PerformanceData {
   value: number;
   color: string;
   isYou?: boolean;
+}
+
+export interface RevenueItem {
+  label: string;
+  amount: number;
+  count: number;
+  timing?: string;
+}
+
+export interface SummaryMetrics {
+  implementedRevenue: number;
+  growthPercent: number;
+  currentRevPerTest: number;
+  targetRevPerTest: number;
+  lostOpportunity: number;
+  recoveryRate: number;
 }
 

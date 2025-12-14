@@ -1,8 +1,9 @@
 import Header from './components/Header';
 import HorizontalFunnel from './components/HorizontalFunnel';
+import RevenueBreakdown from './components/RevenueBreakdown';
 import OpportunitiesTable from './components/OpportunitiesTable';
 import PerformanceChart from './components/PerformanceChart';
-import { locationProfile } from './data/mockData';
+import { locationProfile, revenueBreakdown, connectionDetails, summaryMetrics } from './data/mockData';
 import { BarChart3, CheckCircle2, CreditCard, Glasses } from 'lucide-react';
 
 function App() {
@@ -28,13 +29,6 @@ function App() {
       label: "Bought Glasses", 
       icon: <Glasses className="w-8 h-8 text-orange-500" /> 
     }
-  ];
-
-  // Connection data (drop-off percentages)
-  const connections = [
-    { dropoffPercent: 11.3, isPositive: false },
-    { dropoffPercent: 44, isPositive: false },
-    { dropoffPercent: 95, isPositive: true }
   ];
 
   // Opportunities data
@@ -73,23 +67,39 @@ function App() {
     <div className="min-h-screen bg-gray-50">
       <Header location={locationProfile} />
       
-      <main className="max-w-7xl mx-auto px-6 pt-20 pb-16">
+      <main className="max-w-7xl mx-auto px-6 pt-24 pb-16">
         {/* Section 1: Horizontal Funnel */}
-        <HorizontalFunnel stages={stages} connections={connections} />
+        <HorizontalFunnel stages={stages} connections={connectionDetails} />
         
-        {/* Section 2: Opportunities */}
+        {/* Section 2: Revenue Breakdown */}
+        <div className="mt-6">
+          <RevenueBreakdown 
+            items={revenueBreakdown} 
+            total={locationProfile.totalRevenue}
+            lostOpportunity={summaryMetrics.lostOpportunity}
+            recoveryRate={summaryMetrics.recoveryRate}
+          />
+        </div>
+        
+        {/* Section 3: Opportunities */}
         <div className="mt-6">
           <OpportunitiesTable 
             opportunities={opportunities} 
             totalRevenue="$17,804"
+            summaryMetrics={summaryMetrics}
           />
         </div>
         
-        {/* Section 3: Performance */}
+        {/* Section 4: Performance */}
         <div className="mt-6">
           <PerformanceChart 
             data={performanceData}
             maxValue={51.20}
+            quickWins={[
+              { title: 'Fix wait time abandonments', revenue: '+$7,878/mo' },
+              { title: 'Launch $15 bundle promotion', revenue: '+$6,577/mo' },
+              { title: 'Set up email reminders', revenue: '+$3,349/mo' }
+            ]}
           />
         </div>
       </main>

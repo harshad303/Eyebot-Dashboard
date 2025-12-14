@@ -16,29 +16,23 @@ const Header = ({ location }: HeaderProps) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-200/50 z-50 h-16 shadow-sm">
-      <div className="max-w-7xl mx-auto px-8 h-full flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Revenue Waterfall</h1>
-          <p className="text-sm text-gray-600 font-medium">
+    <header className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50 h-12">
+      <div className="max-w-[1400px] mx-auto px-6 h-full flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <h1 className="text-lg font-bold text-gray-900">Revenue Waterfall</h1>
+          <span className="text-gray-300">|</span>
+          <span className="text-sm text-gray-600">
             {location.name} • {location.dateRange}
-          </p>
+          </span>
         </div>
-        <div className="flex items-center gap-8">
-          <div className="text-right">
-            <div className="text-4xl font-bold text-gray-900 tracking-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              {formatCurrency(location.totalRevenue)}
-            </div>
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 rounded-lg border border-green-200/50">
-              <TrendingUp className="w-4 h-4 text-green-600" />
-              <span className="text-sm font-semibold text-green-700">↑ {location.revenueChange}% vs last period</span>
-            </div>
-            <div className="text-xs text-gray-500 font-medium px-3">
-              {location.networkComparison}% above network average
-            </div>
-          </div>
+        <div className="flex items-center gap-2">
+          <span className="text-2xl font-bold text-gray-900">
+            {formatCurrency(location.totalRevenue)}
+          </span>
+          <span className="bg-green-50 text-green-700 text-sm px-2 py-1 rounded-full font-semibold flex items-center gap-1">
+            <TrendingUp className="w-3 h-3" />
+            ↑ {location.revenueChange}%
+          </span>
         </div>
       </div>
     </header>

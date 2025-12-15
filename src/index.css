@@ -1,21 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
+  background: #F7F2EE; /* Eyebot's warm neutral background */
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 * {
@@ -26,6 +17,85 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'PP Right Grotesk Compact';
+    src: url('./Font/PPRightGrotesk-CompactDark.C34KsL4l.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Aktiv Grotesk';
+    src: url('./Font/AktivGroteskVF_W_Wght.CRj7Tpt5.woff2') format('woff2-variations');
+    font-weight: 300 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Pitch Sans';
+    src: url('./Font/pitch-sans-bold.o6Askn0A.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  h1 {
+    @apply font-extrabold tracking-tight text-gray-900;
+    font-family: 'PP Right Grotesk Compact', 'Inter', system-ui, sans-serif;
+  }
+  h2 {
+    @apply font-bold tracking-tight text-gray-900;
+    font-family: 'PP Right Grotesk Compact', 'Inter', system-ui, sans-serif;
+  }
+  h3 {
+    @apply font-semibold text-gray-900;
+    font-family: 'PP Right Grotesk Compact', 'Inter', system-ui, sans-serif;
+  }
+  p {
+    @apply text-gray-700 leading-relaxed;
+    font-family: 'Aktiv Grotesk', 'Inter', system-ui, sans-serif;
+  }
+  button {
+    @apply font-bold uppercase tracking-wide;
+    font-family: 'Pitch Sans', 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 border border-brand text-brand rounded-full transition-all duration-200 ease-out hover:bg-brand hover:text-white;
+    font-family: 'Pitch Sans', 'Inter', system-ui, sans-serif;
+  }
+  .chip-dark {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full bg-black/50 text-white text-xs font-semibold;
+    font-family: 'Pitch Sans', 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* Eyebot CTA style (transparent → filled on hover) */
+.eyebot-cta {
+  padding: 12px 24px;
+  background: transparent;
+  border: 2px solid #261E36;
+  border-radius: 8px;
+  color: #261E36;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.eyebot-cta:hover {
+  background: #3C23E1;
+  border-color: #3C23E1;
+  color: white;
 }
 
 @keyframes fadeIn {

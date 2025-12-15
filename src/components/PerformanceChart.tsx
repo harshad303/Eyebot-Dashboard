@@ -16,14 +16,14 @@ const PerformanceChart = ({ data, maxValue, quickWins }: PerformanceChartProps) 
   const opportunity = gap * 4680; // gap per test × total tests
 
   return (
-    <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
-      <h2 className="text-xl font-bold text-gray-900 mb-6">Performance vs Network</h2>
+    <div className="bg-eyebot-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Performance vs Network</h2>
       
       <div className="space-y-4">
         {data.map((item, index) => (
           <div key={index} className="flex items-center gap-4">
             <div className={`w-24 text-sm font-medium text-gray-700 text-right flex items-center gap-2 ${item.isYou ? 'font-bold' : ''}`}>
-              {item.isYou && <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>}
+              {item.isYou && <div className="w-2 h-2 rounded-full bg-eyebot-purple animate-pulse"></div>}
               {item.label}
             </div>
             
@@ -61,7 +61,7 @@ const PerformanceChart = ({ data, maxValue, quickWins }: PerformanceChartProps) 
           <div className="space-y-2">
             {quickWins.map((win, index) => (
               <div key={index} className="flex items-center gap-3 py-2 text-sm">
-                <div className="w-5 h-5 rounded border-2 border-gray-300 cursor-pointer hover:border-blue-500 transition-colors"></div>
+                <div className="w-5 h-5 rounded border-2 border-gray-300 cursor-pointer hover:border-eyebot-purple transition-colors"></div>
                 <div className="flex-1 text-gray-700">
                   {win.title} → <span className="font-semibold text-green-600">{win.revenue}</span>
                 </div>

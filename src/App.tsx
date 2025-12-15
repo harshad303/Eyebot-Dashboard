@@ -58,13 +58,13 @@ function App() {
 
   // Performance data
   const performanceData = [
-    { label: "You", value: 42.14, color: "bg-blue-500", isYou: true },
+    { label: "You", value: 42.14, color: "bg-eyebot-purple", isYou: true },
     { label: "Network", value: 37.80, color: "bg-gray-400" },
-    { label: "Top 10%", value: 51.20, color: "bg-green-500" }
+    { label: "Top 10%", value: 51.20, color: "bg-success" }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-eyebot-warm">
       <Header location={locationProfile} />
       
       <main className="max-w-7xl mx-auto px-6 pt-24 pb-16">

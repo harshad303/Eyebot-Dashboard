@@ -19,10 +19,10 @@ const RevenueBreakdown = ({ items, total, lostOpportunity, recoveryRate }: Reven
   };
 
   return (
-    <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-eyebot-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
       <div className="mb-6 flex items-center gap-2">
-        <DollarSign className="w-5 h-5 text-gray-600" />
-        <h2 className="text-xl font-bold text-gray-900">Revenue Attribution</h2>
+        <DollarSign className="w-5 h-5 text-eyebot-purple" />
+        <h2 className="text-2xl font-bold text-gray-900">Revenue Attribution</h2>
       </div>
       
       <div className="space-y-0">
@@ -35,7 +35,7 @@ const RevenueBreakdown = ({ items, total, lostOpportunity, recoveryRate }: Reven
               <div className="text-base font-semibold text-gray-900">
                 {item.label}
               </div>
-              <div className="text-sm text-gray-500 mt-0.5">
+              <div className="text-sm text-gray-600 mt-0.5">
                 {item.count.toLocaleString()} {item.timing && `• ${item.timing}`}
               </div>
             </div>
@@ -48,7 +48,7 @@ const RevenueBreakdown = ({ items, total, lostOpportunity, recoveryRate }: Reven
       </div>
       
       {lostOpportunity && (
-        <div className="my-4 p-4 bg-orange-50 border-l-4 border-orange-400 rounded-r-lg">
+        <div className="my-4 p-4 bg-orange-50 border-l-4 border-warning rounded-r-lg">
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
@@ -70,7 +70,7 @@ const RevenueBreakdown = ({ items, total, lostOpportunity, recoveryRate }: Reven
       
       <div className="mt-6 pt-4 border-t-2 border-gray-200 flex justify-between items-center">
         <div className="text-lg font-bold text-gray-900">Total Revenue</div>
-        <div className="text-2xl font-bold text-blue-600">
+        <div className="text-2xl font-bold text-eyebot-purple">
           {formatCurrency(total)}
         </div>
       </div>

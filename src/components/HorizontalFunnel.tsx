@@ -27,8 +27,8 @@ const HorizontalFunnel = ({ stages, connections }: HorizontalFunnelProps) => {
   };
 
   return (
-    <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
-      <h2 className="text-xl font-bold text-gray-900 mb-6">Customer Journey</h2>
+    <div className="bg-eyebot-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Customer Journey</h2>
       
       <div className="grid grid-cols-7 gap-2 items-center">
         {items.map((item) => {
@@ -36,7 +36,7 @@ const HorizontalFunnel = ({ stages, connections }: HorizontalFunnelProps) => {
             const delays = [0, 150, 300, 450];
             return (
               <div key={`stage-${item.index}`} className="col-span-1">
-                <div 
+                <div
                   className="bg-gray-50 rounded-lg p-6 text-center hover:bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fadeIn"
                   style={{ animationDelay: `${delays[item.index]}ms` }}
                 >
@@ -57,7 +57,7 @@ const HorizontalFunnel = ({ stages, connections }: HorizontalFunnelProps) => {
             return (
               <div key={`arrow-${item.index}`} className="col-span-1 relative group">
                 <div className="flex flex-col items-center justify-center cursor-pointer">
-                  <span className="text-2xl text-gray-300">→</span>
+                  <span className="text-2xl text-brandAccent/60">→</span>
                   <span
                     className={`text-sm font-semibold mt-1 ${
                       connection?.isPositive
@@ -71,19 +71,19 @@ const HorizontalFunnel = ({ stages, connections }: HorizontalFunnelProps) => {
                 
                 {/* Tooltip */}
                 {connection?.dropoffCount && connection?.reasons && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-gray-900 text-white rounded-lg p-4 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 bg-[#0f172a] text-white rounded-lg p-5 shadow-xl border border-gray-900 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-brand pointer-events-none">
                     {/* Arrow pointing up */}
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-900"></div>
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-[#0f172a]"></div>
                     
                     {/* Header */}
-                    <div className="font-semibold mb-3 text-sm">
+                    <div className="font-semibold mb-3 text-base text-white">
                       Why did {connection.dropoffCount.toLocaleString()} people drop off?
                     </div>
                     
                     {/* Reasons list */}
                     <div className="space-y-2 mb-3">
                       {connection.reasons.slice(0, 3).map((reason, idx) => (
-                        <div key={idx} className="text-xs text-gray-300">
+                        <div key={idx} className="text-sm text-gray-100">
                           • {reason.reason} ({reason.count.toLocaleString()} - {reason.percent}%)
                         </div>
                       ))}
@@ -93,16 +93,16 @@ const HorizontalFunnel = ({ stages, connections }: HorizontalFunnelProps) => {
                     {connection.fix && (
                       <>
                         <div className="border-t border-gray-700 mt-3 pt-3">
-                          <div className="flex items-start gap-2 text-xs">
-                            <Lightbulb className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
+                          <div className="flex items-start gap-2 text-sm text-white">
+                            <Lightbulb className="w-4 h-4 text-yellow-200 flex-shrink-0 mt-0.5" />
                             <div className="flex-1">
                               <div className="font-semibold text-white mb-1">
                                 {connection.fix.title}
                               </div>
-                              <div className="text-gray-300 mb-1">
+                              <div className="text-gray-200 mb-1">
                                 {connection.fix.impact}
                               </div>
-                              <div className="text-green-400 font-semibold">
+                              <div className="text-success font-semibold">
                                 +{formatCurrency(connection.fix.revenue)}/mo
                               </div>
                             </div>
@@ -119,7 +119,7 @@ const HorizontalFunnel = ({ stages, connections }: HorizontalFunnelProps) => {
       </div>
       
       {/* Summary Banner */}
-      <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+      <div className="mt-6 p-4 bg-eyebot-warm rounded-lg border border-gray-200">
         <div className="grid grid-cols-4 gap-4">
           <div className="text-center">
             <div className="text-xs text-gray-700 mb-1">Completion Rate</div>
